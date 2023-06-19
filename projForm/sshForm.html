@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <style>
+            h1 {color: green; text-align: center;background-color: rgb(151, 193, 230) ;}
+            input {background-color: yellow;}
+            input, label{
+                margin-top: 10px;
+            }
+            label {
+                margin-left: 30px;
+            }
+            .clsLbl {
+                color: green;
+                font-weight: bold;
+                display:inline-block;
+                width: 14%;
+                text-align: right;
+                margin-left: 27%;
+            }
+
+        </style>
+
+        <script>
+            function mChk(){
+                var lFm= document.fm;;
+
+                var lGrd= lFm.grd;
+                var lNum = document.getElementById("idNum");
+                var lAccss = lFm.accessKey;
+                if(lGrd.value==0){
+                        alert("grAde");
+                        lNum.select();
+                        return false;
+                }
+                else if(lNum.value.length=='' || isNaN(lNum.value)){
+                    window.alert("numBer");
+                    lGrd.focus();
+                    return false;
+
+                }
+                else if(lAccss.value.length !=4 || isNaN(lAccss.value)){
+                    window.alert("acCss");
+                    lAccss.select();
+                    return false;
+                }
+                
+
+                
+                else
+                    lFm.submit(); // 드디어 서버로 전송한다.
+
+            }
+        </script>
+    </head>
+    <body>
+        <h1>let`s go out here!!</h1>
+        <form  name="fm"
+                method="post" action="http://arabbit.link/dirSw/insrtHstry.php" onsubmit="return false;">
+        <div>
+            <label class="clsLbl" for="idGrd">학년 :</label>
+            <select name="grd">
+                <option value="0"> 학년은? </option>
+                <option value="1"> 1학년 </option>
+                <option value="2" selected> 2학년 </option>
+                <option value="3"> 3학년 </option>
+            </select>
+
+            <!--
+            <input id="idGrd" type="text" name="grd" placeholder="학년은?(숫자만)">
+            -->
+        </div><div>
+            <label class="clsLbl" for="idCls1">1반:</label>
+            <input id="idCls1" type="radio" value="1" name="cls">
+            <label for="idCls2">2반:</label>
+            <input id="idCls2" type="radio" value="2" name="cls">
+            <label for="idCls3">3반:</label>
+            <input id="idCls3" type="radio" value="3" name="cls">
+            <label for="idCls4">4반:</label>
+            <input id="idCls4" type="radio" value="4" name="cls">
+        </div> <div>
+            <label class="clsLbl" for="idNum">번호:</label>
+            <input id="idNum" type="text" name="num", placeholder="몇번?(숫자만)">
+        </div> <div>
+            <label class="clsLbl" for="idNm">이름:</label>
+            <input id="idNm" type="text" name="nm", placeholder="이름은?(숫자만)">
+        </div><div>
+            <label class="clsLbl" for="idGbn1">구분1:</label><!--html-->
+            <input id="idGbn1" type="text" name="gbn1", placeholder="구분1?(숫자만)">
+        </div><div>
+            <label class="clsLbl" for="idGbn2">구분2:</label><!--form-->
+            <input id="idGbn2" type="text" name="gbn2", placeholder="구분2?(숫자만)">
+        </div><div>
+            <label class="clsLbl" for="idAccessKey">엑세스키:</label><!--3521-->
+            <input id="idAccessKey" type="text" name="accessKey", placeholder="액새스키?(숫자만)">
+        </div>
+
+        <div style="text-align: center;">
+            <input type="submit" value="제출" onclick="mChk();">
+        </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kcd's class!!</title>
+    <style>
+        #idDiv {
+            width: 50px;
+            height: 50px;
+            background-color: lightgreen;
+            transition: 3s
+        }
+    </style>
+
+    <script>
+        const m0k = (pVal) => {
+            let lObj = document.getElementById("idDiv");
+            if(pVal=="move")
+            {
+                lObj.style.transform = `translate(30px, 50px)`;
+            }
+            else if(pVal=="rotate") {
+                lObj.style.transform = `rotate(-135deg)`;
+            }
+            else if(pVal=="scale") {
+                lObj.style.transform = `scale(1.5, 2)`;
+            }
+            else if(pVal=="skewX") {
+                lObj.style.transform = `skewX(20deg)`;
+            }
+            else if(pVal=="skewY") {
+                lObj.style.transform = `skewY(30deg)`;
+            }
+            else if(pVal=="reset") {
+                lObj.style.transform = `translate(0, 0)`;
+            }
+        };
+    </script>
+</head>
+<body>
+    <button onclick="m0k('move')">translate</button>
+    <button onclick="m0k('rotate')">rotate</button>
+    <button onclick="m0k('scale')">scale</button>
+    <button onclick="m0k('skewX')">skewX</button>
+    <button onclick="m0k('skewY')">skewY</button>
+    <button onclick="m0k('reset')">reset</button>
+    <div id="idPrnt" style="width:80vw; height:80vh; padding:50px; border:1px solid red">
+        <div id="idDiv">
+
+        </div>
+    </div>
+</body>
+</html>
